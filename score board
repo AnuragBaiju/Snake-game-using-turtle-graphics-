@@ -1,0 +1,23 @@
+from turtle import Turtle
+
+ALIGNMENT = "center"
+FONT = ("Arial", 20, "normal")
+
+
+class Scoreboard(Turtle):
+    def __init__(self):
+        super().__init__()
+        self.penup()
+        self.color("white")
+        self.goto(0, 280)  # Move to initial position
+        self.hideturtle()
+        self.current_score = 0
+        self.score_update()
+
+    def score_update(self):
+        self.clear()  # Clear previous score
+        self.write(f"Score: {self.current_score}", align=ALIGNMENT, font=FONT)
+
+    def score_increase(self):
+        self.current_score += 1
+        self.score_update()
