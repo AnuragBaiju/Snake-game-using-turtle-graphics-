@@ -1,0 +1,33 @@
+from turtle import Turtle
+import random
+FOOD_COLORS = {
+    "red": "#FF0000",
+    "green": "#00FF00",
+    "blue": "#0000FF",
+    "yellow": "#FFFF00",
+    "purple": "#800080",
+    "orange": "#FFA500",
+    "pink": "#FFC0CB",
+    "brown": "#A52A2A",
+    "cyan": "#00FFFF",
+    "magenta": "#FF00FF"
+}
+
+
+class Food(Turtle):
+
+    def __init__(self):
+        super().__init__()
+        self.shape("circle")
+        self.penup()
+        self.color(random.choice(list(FOOD_COLORS)))
+        self.shapesize(stretch_len=0.5, stretch_wid=0.5)
+        self.speed("fastest")
+        self.refresh()
+
+    def refresh(self):
+        self.color(random.choice(list(FOOD_COLORS)))
+        x_coordinates = random.randint(-260, 260)
+        y_coordinates = random.randint(-260, 260)
+        self.goto(x_coordinates, y_coordinates)
+
